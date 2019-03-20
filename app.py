@@ -51,7 +51,7 @@ def add_message():
     defaulter={}
     count=0
     for i in arr:
-           j = haversine(42.41594002622956, 90.8705696712861, i["lat"], i["lng"])
+           j = haversine(22.572720, 88.3639400, i["lat"], i["lng"])
            if j > 1.2/1000:
                    defaulter['lat']=i['lat']
                    defaulter['lng']=i['lng']
