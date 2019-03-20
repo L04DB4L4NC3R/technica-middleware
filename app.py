@@ -30,11 +30,8 @@ def haversine(lng1, lat1, lng2, lat2):
 @app.route('/add')
 @cross_origin()
 def hello_world():
-        arr = [{'lat':"12.97298323", 'lng':"79.16381103", 'voltage':"medium"},{'lat':"12.97297611", 'lng':"79.16380391", 'voltage':"medium"}]
-        for i in arr:
-
-                db.execute("INSERT INTO pole VALUES(:lat, :lng, :volt)", lat=i["lat"], lng=i["lng"], volt=i["voltage"])
-        
+        content = request.json        
+                db.execute("INSERT INTO pole VALUES(:lat, :lng, :volt)", lat=content["lat"], lng=content["lng"], volt=content["voltage"])
         return "Added"
 
 @app.route("/delete")
@@ -65,6 +62,7 @@ def add_message():
     print(defaulter)
     data = {"lat":str(defaulter["lat"]), "lng":str(defaulter["lng"]), "time": str(time.time()), "id":"1"}
     res = requests.post("http://139.59.23.108:3000/api/v1/client/create", data=json.dumps(data), headers={"Content-Type":"application/json"})
+    db.execute("INSERT INTO pole VALUES(:lat, :lng, :volt)", lat=defaulter["lat"], lng=defaulter["lng"], volt="medium")
     return "Defaulter found!!!, saving in blockchain....\n" +  str(res.text) + " " + str(defaulter) 
     
 
