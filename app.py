@@ -73,7 +73,7 @@ def add_message():
 def show_hw():
         c = db.execute("select * from pole")
         print(c)
-        return str(c)
+        return jsonify(c)
 
 
 
