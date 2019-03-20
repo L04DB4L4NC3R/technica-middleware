@@ -31,7 +31,7 @@ def haversine(lng1, lat1, lng2, lat2):
 @cross_origin()
 def hello_world():
         content = request.json        
-                db.execute("INSERT INTO pole VALUES(:lat, :lng, :volt)", lat=content["lat"], lng=content["lng"], volt=content["voltage"])
+        db.execute("INSERT INTO pole VALUES(:lat, :lng, :volt)", lat=content["lat"], lng=content["lng"], volt=content["voltage"])
         return "Added"
 
 @app.route("/delete")
