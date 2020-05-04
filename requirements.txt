@@ -1,7 +1,7 @@
 ﻿certifi==2019.3.9
 chardet==3.0.4
 Click==7.0
-cs50==3.1.0
+cs50==5.0.4
 Flask==1.0.2
 gunicorn==19.9.0
 idna==2.8
